@@ -1,0 +1,10 @@
+<p>login2 works!</p>
+<button #boton id="boton-login-async">
+	<ng-container *ngIf="isLogin">Logout</ng-container>
+	<ng-container *ngIf="!isLogin">Login</ng-container>
+</button> 
+
+<button #boton id="boton-login-rx">
+	<ng-container *ngIf="isLoginRx() | async">Logout</ng-container>
+	<ng-container *ngIf="!(isLoginRx() | async)">Login</ng-container>
+</button> 

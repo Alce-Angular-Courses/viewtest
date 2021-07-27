@@ -1,0 +1,17 @@
+<p>login-form-rx works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+	    <div>
+	        <label>Email</label>
+	        <input type="email" formControlName="email">        
+	    </div>
+	    <div>
+	        <label>Password</label>
+	        <input type="password" formControlName="passwd" >
+	    </div>
+	    <div>
+	        <button type="submit" [disabled]="!enabled">
+	            Login
+	        </button>        
+	    </div>
+	</form>
+	

@@ -18,10 +18,10 @@ describe('AuthServiveService', () => {
 
 	it('should be true isLogin if there are token..', () => {
 		localStorage.setItem(storeName, 'qweqweqw332311ewq');
-		expect(service.isLogin()).toBeTrue();
+		expect(service.isAuth()).toBeTrue();
 	});
 
 	it('should be false is Login if there are not  token..', () => {
-		expect(service.isLogin()).toBeFalse();
+		expect(service.isAuth()).toBeFalse();
 	});
 });

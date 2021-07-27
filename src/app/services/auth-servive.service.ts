@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,9 +10,20 @@ export class AuthServiveService {
 		this.storeName = 'Token';
 	}
 
-	isLogin (): boolean {
+	isAuth (): boolean {
 		return Boolean(localStorage.getItem(this.storeName ));
 	}
+
+	isAuthAsync (): Promise<boolean> {
+		return Promise.resolve(Boolean(localStorage.getItem(this.storeName )))
+	}
+
+	isAuthRx (): Observable<Boolean> {
+		return of(Boolean(localStorage.getItem(this.storeName )))
+	}
+
+
+	setToken() : void {}
 
 	login(token: string): void {
 		localStorage.setItem(this.storeName, token);

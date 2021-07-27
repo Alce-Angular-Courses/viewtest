@@ -1,1 +1,5 @@
 <p>login works!</p>
+<button #boton id="boton-login">
+	<ng-container *ngIf="isLogin()">Logout</ng-container>
+	<ng-container *ngIf="!isLogin()">Login</ng-container>
+</button> 
