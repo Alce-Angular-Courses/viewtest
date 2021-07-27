@@ -1,37 +1,41 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+	let fixture: ComponentFixture<AppComponent>;
+	let app: AppComponent; 
 
-  it(`should have as title 'Viewnext Testing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Viewnext Testing');
-  });
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [
+				RouterTestingModule
+			],
+			declarations: [
+				AppComponent
+			],
+		}).compileComponents();
+	});
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Viewnext Testing app is running!');
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(AppComponent);
+		app = fixture.componentInstance;
+	});
+
+	it('should create the app', () => {
+		expect(app).toBeTruthy();
+	});
+
+	it('should have as title \'Viewnext Testing\'', () => {
+		expect(app.title).toEqual('Viewnext Testing');
+	});
+
+	it('should render title', () => {
+		fixture.detectChanges();
+		const compiled = fixture.nativeElement as HTMLElement;
+		expect(compiled.querySelector('.content span')?.textContent).toContain('Viewnext Testing app is running!');
+	});
 });
 
 
